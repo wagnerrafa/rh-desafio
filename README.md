@@ -100,6 +100,8 @@ $ git push origin master
 Python
 Criar a Virtual Env
 $ virtualenv venv
+Ativar as venvs
+$ . venv/Scripts/activate
 Instalar os Requerimentos:
 $ pip install -r requirements.txt
 Iniciar as Migrações
