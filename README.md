@@ -100,7 +100,7 @@ $ git push origin master
 Python
 Criar a Virtual Env
 $ virtualenv venv
-Ativar as venvs
+Ativar a venv
 $ . venv/Scripts/activate
 Instalar os Requerimentos:
 $ pip install -r requirements.txt
