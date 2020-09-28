@@ -1,6 +1,6 @@
 ﻿# Desafio RH
 
-Boa tarde a todos!, para esse desafio seguiremos recomendamos conhecimento basico em alguns frameworks e python!
+Boa tarde!, para esse desafio recomendamos conhecimento basico em alguns frameworks e python!
 
   - Django
   - Pip
@@ -39,7 +39,7 @@ Caso tenha qualquer duvida a respeito do teste pode me chamar aqui mesmo no git!
 
 O desafio consiste em um sistema basico de RH, nele temos as empresas (company) os departamentos (department) dessas empresas e seus colaboradores (employee)
 
-Temos os models dessas já setados porém você terá que adicionar alguns campos a mais para as empresas e para os departamentos!
+Temos os models dessas já setados porém você terá que adicionar alguns campos a mais para as empresas e para os departamentos e para os Colaboradores!
 
 ### Para a Empresa (Company)!
 
@@ -70,7 +70,7 @@ Temos os models dessas já setados porém você terá que adicionar alguns campo
 | ------ | ------ |
 | Employee | [company/employee/][PlDb] |
 | Company | [company/][PlGh] |
-| Department | [deparment/][PlGd] |
+| Department | [company/deparment/][PlGd] |
 
 ### ADMIN
 
