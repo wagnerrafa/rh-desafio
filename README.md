@@ -13,7 +13,7 @@ Boa tarde!, para esse desafio recomendamos conhecimento basico em alguns framewo
 
 para começar siga alguns passos:
 
-  - Fork esse direitorio
+  - Fork esse diretorio
   - Clone para o seu computador
   - Crie sua venv!
   - instale os requirementos utilizando o pip (requirements.txt)
