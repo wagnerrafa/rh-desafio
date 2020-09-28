@@ -68,9 +68,9 @@ Temos os models dessas já setados porém você terá que adicionar alguns campo
 
 | Model | Url |
 | ------ | ------ |
-| Employee | [company/employee/][PlDb] |
-| Company | [company/][PlGh] |
-| Department | [company/deparment/][PlGd] |
+| Employee | [company/employee/] |
+| Company | [company/]|
+| Department | [company/deparment/] |
 
 ### ADMIN
 
