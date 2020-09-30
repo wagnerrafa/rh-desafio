@@ -82,7 +82,7 @@ Temos os models dessas já setados porém você terá que adicionar alguns campo
 
 # Importante
 
-#### Faça a View do Employee com todos os campos do template, e não esqueça de colocar também a foto da empresa no template, confirá todos os campos, Não esqueça do CRUD COMPLETO nas views, porém no template apenas o Insert.
+#### Faça a View do Employee com todos os campos do template, e não esqueça de colocar também a foto da empresa no template, confirá todos os campos, Não esqueça do CRUD COMPLETO nas views, porém no template apenas o Insert(Create  ou C do CRUD).
 
 #### O create user, update user, são campos de UUID referentes ao usuário de criação e são auto preenchidos no momento do cadastro no TEMPLATE, (não avaliaremos o cadastro do django admin) consideraremos um extra! :)
 
