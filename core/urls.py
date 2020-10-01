@@ -1,9 +1,10 @@
 from django.urls import path
-
+from core.views import index
+from . import views
 app_name = 'core'
 
 urlpatterns = [
-
+   path('',index),
    # path('process-list-full', ProcessList.as_view(), name='process-list-full'),
    # path('process-list-partner', ProcessListPartner.as_view(), name='process-list-partner'),
    # path('process-list-owner', ProcessListOwner.as_view(), name='process-list-owner'),
