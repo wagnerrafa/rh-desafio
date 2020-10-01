@@ -9,6 +9,10 @@ from django.db import models
 class Company(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False, unique=True)
 
+    logo = models.ImageField()
+    name = models.CharField(max_length=50, verbose_name='Nome', blank=False)
+    legal_number = models.CharField(max_length=10, verbose_name='Numero', blank=False)
+
     # This is auto created and updated date
     created_at = models.DateTimeField(auto_now_add=True, editable=False)
     updated_at = models.DateTimeField(auto_now=True, editable=False)
@@ -16,7 +20,8 @@ class Company(models.Model):
     create_user = models.UUIDField(editable=False, null=True)
     update_user = models.UUIDField(editable=False, null=True)
 
-
+    def __str__(self):
+        return(self.name)
 class Department(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False, unique=True)
 
@@ -27,7 +32,7 @@ class Department(models.Model):
     create_user = models.UUIDField(editable=False, null=True)
     update_user = models.UUIDField(editable=False, null=True)
 
-
+    
 class Employee(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False, unique=True)
 
