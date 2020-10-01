@@ -1,10 +1,16 @@
 from django.urls import path
 from core.views import index
 from . import views
+from django.conf.urls import url
+from django.views.static import serve
+from django.conf import settings
+
 app_name = 'core'
 
 urlpatterns = [
    path('',index),
+   url(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
+
    # path('process-list-full', ProcessList.as_view(), name='process-list-full'),
    # path('process-list-partner', ProcessListPartner.as_view(), name='process-list-partner'),
    # path('process-list-owner', ProcessListOwner.as_view(), name='process-list-owner'),
