@@ -25,7 +25,7 @@ class Company(models.Model):
 class Department(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False, unique=True)
 
-    company = models.ForeignKey(Company, verbose_name="Empresa", on_delete=models.CASCADE)
+    company = models.ForeignKey(Company, verbose_name="Empresa", on_delete=models.PROTECT)
     name = models.CharField(max_length=50, verbose_name='Nome', blank=False)
     status = models.BooleanField('status', default=False)
     admin = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
@@ -42,6 +42,7 @@ class Department(models.Model):
 class Employee(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False, unique=True)
 
+    department = models.ForeignKey(Department, verbose_name="Departamento", on_delete=models.PROTECT)
     name = models.CharField(max_length=100)
     user = models.OneToOneField(User, on_delete=models.PROTECT)
     GENDER = (
