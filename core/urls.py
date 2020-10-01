@@ -1,5 +1,5 @@
 from django.urls import path
-from core.views import *
+from core.views import index, user_form, post_detail
 from . import views
 from django.conf.urls import url
 from django.views.static import serve
@@ -10,6 +10,7 @@ app_name = 'core'
 urlpatterns = [
    path('',index),
    path('user_form/', user_form),
+   path('core/company/<uuid:pk>/', views.post_detail, name='post_detail'),
    url(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
 
    # path('process-list-full', ProcessList.as_view(), name='process-list-full'),

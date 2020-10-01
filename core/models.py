@@ -53,7 +53,7 @@ class Employee(models.Model):
     )
     gender = models.CharField(max_length=1, choices=GENDER)
     # department = models.ForeignKey(Department, on_delete=models.PROTECT)
-    # company = models.ForeignKey(Company, on_delete=models.PROTECT)
+    company = models.ForeignKey(Company, on_delete=models.PROTECT)
     phone = models.CharField(max_length=14, default='Sem Telefone')
     role = models.CharField(max_length=50, default='Sem Atribuição')
     age = models.IntegerField(default=0)
