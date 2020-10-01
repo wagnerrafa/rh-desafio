@@ -22,8 +22,11 @@ def user_form(request):
 
 def post_detail(request, pk):
     post = get_object_or_404(Company, pk=pk)
-    empresa = Company.objects.filter(id=pk).values_list('name','logo')
+    empresa = Company.objects.filter(id=pk).values_list('name','logo','department')
     dadosEmpresa = empresa[0]
     nomeEmpresa = dadosEmpresa[0]
     logoEmpresa = dadosEmpresa[1]
-    return render(request, 'core/user_form.html', {'post':empresa,'nomeEmpresa':nomeEmpresa,'logoEmpresa':logoEmpresa})
+    departamentos =dadosEmpresa[2]
+    departamentos = Department.objects.filter(company=post)
+
+    return render(request, 'core/user_form.html', {'post':empresa,'nomeEmpresa':nomeEmpresa,'logoEmpresa':logoEmpresa,'departamentos':departamentos})

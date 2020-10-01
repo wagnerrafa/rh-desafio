@@ -82,11 +82,14 @@
                     <div class="col-md-5 mb-3">
                         <label for="country">Departamento</label>
                         <select class="custom-select d-block w-100" id="country" required>
-                            <option value="">Selecionar...</option>
+                            <option value="" disabled selected>Selecionar departamento</option>
+                            {% for departamento in departamentos%}
+                                <option value="{{departamento.name}}">{{departamento.name}}</option>
+                            {%endfor%}
                         </select>
-                        <div class="invalid-feedback">
-                            Please select a valid country.
-                        </div>
+                            <div class="invalid-feedback">
+                                Please select a valid country.
+                            </div>
                     </div>
                 </div>
                 <div class="row">
