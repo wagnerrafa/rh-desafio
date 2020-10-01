@@ -25,13 +25,19 @@ class Company(models.Model):
 class Department(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False, unique=True)
 
+    company = models.ForeignKey(Company, verbose_name="Empresa", on_delete=models.CASCADE)
+    name = models.CharField(max_length=50, verbose_name='Nome', blank=False)
+    status = models.BooleanField('status', default=False)
+    admin = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
+
     # This is auto created and updated date
     created_at = models.DateTimeField(auto_now_add=True, editable=False)
     updated_at = models.DateTimeField(auto_now=True, editable=False)
 
     create_user = models.UUIDField(editable=False, null=True)
     update_user = models.UUIDField(editable=False, null=True)
-
+    def __str__(self):
+        return(self.name )
     
 class Employee(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False, unique=True)
