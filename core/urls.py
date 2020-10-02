@@ -9,8 +9,6 @@ app_name = 'core'
 
 urlpatterns = [
    path('',index, name='index'),
-   path('colaborador/', colaborador, name="colaborador"),
-   path('core/cadastrar/', cadastrar, name='cadastrar'),
    path('core/company/<uuid:pk>/', views.empresa, name='empresa'),
 
    path('employee_list/', views.EmployeeList.as_view(), name='employee_list'),

@@ -10,17 +10,6 @@ def index(request):
     
     return render(request, 'core/empresa.html',{'empresas':empresas})
 
-def cadastrar(request):
-    if request.method == 'GET':
-        return render(request, 'core/cadastrar.html')
-    elif (request.method == 'POST'):
-        empresa = Company()
-        empresa.logo = request.FILES['logo']
-        empresa.name = request.POST['nome']
-        empresa.legal_number = request.POST['numero']
-        empresa.save()
-        return redirect('core:index')
-
 def empresa(request, pk):
     post = get_object_or_404(Company, pk=pk)
     empresa = Company.objects.filter(id=pk).values_list('name','logo','department')
@@ -46,11 +35,6 @@ def empresa(request, pk):
         colaborador.save()
         msg = "Cadastro feito com sucesso"
     return render(request, 'core/user_form.html', {'post':empresa,'nomeEmpresa':nomeEmpresa,'logoEmpresa':logoEmpresa,'departamentos':departamentos,'msg':msg})
-
-def colaborador(request):
-    
-       
-    return render(request, 'core/colaborador.html')
 
 
 class EmployeeList(ListView):
