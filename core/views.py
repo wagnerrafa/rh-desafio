@@ -1,6 +1,9 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Company, Department, Employee, Book
-
+from .models import Company, Department, Employee
+from django.http import HttpResponse
+from django.views.generic import TemplateView,ListView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.urls import reverse_lazy
 # Create your views here.
 def index(request):
     empresas = Company.objects.all()
@@ -49,14 +52,6 @@ def colaborador(request):
        
     return render(request, 'core/colaborador.html')
 
-
-
-from django.http import HttpResponse
-from django.views.generic import TemplateView,ListView
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from django.urls import reverse_lazy
-
-from .models import Book
 
 class EmployeeList(ListView):
     model = Employee

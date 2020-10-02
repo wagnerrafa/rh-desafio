@@ -77,9 +77,3 @@ class Employee(models.Model):
         
     def get_absolute_url(self):
         return reverse('core:edit_employee', kwargs={'pk': self.pk})
-class Book(models.Model):
-    name = models.CharField(max_length=200)
-    pages = models.IntegerField()
-
-    def __str__(self):
-        return self.name

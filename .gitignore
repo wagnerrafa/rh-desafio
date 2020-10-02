@@ -5,7 +5,6 @@ media
 .DS_Store
 *.sqlite3
 *.env
-migrations
 ambiente
 
 # Accept these files in the repository
