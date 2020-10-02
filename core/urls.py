@@ -1,5 +1,5 @@
 from django.urls import path
-from core.views import index, empresa, cadastrar, colaborador
+from core.views import *
 from core import views
 from django.conf.urls import url
 from django.views.static import serve
@@ -9,9 +9,14 @@ app_name = 'core'
 
 urlpatterns = [
    path('',index, name='index'),
-   path('user_form/',colaborador, name='user_form'),
+   path('colaborador/', colaborador, name="colaborador"),
+   path('employee_list/', views.EmployeeList.as_view(), name='employee_list'),
+   path('new/', views.EmployeeCreate.as_view(), name='employee_new'),
+   path('edit/<uuid:pk>/', views.EmployeeUpdate.as_view(), name='employee_edit'),
+   path('delete/<uuid:pk>/', views.EmployeeDelete.as_view(), name='employee_delete'),
    path('core/cadastrar/', cadastrar, name='cadastrar'),
    path('core/company/<uuid:pk>/', views.empresa, name='empresa'),
+  
    url(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
 
    # path('process-list-full', ProcessList.as_view(), name='process-list-full'),

@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Company, Department, Employee
+from .models import Company, Department, Employee, Book
 
 # Create your views here.
 def index(request):
@@ -45,9 +45,30 @@ def empresa(request, pk):
     return render(request, 'core/user_form.html', {'post':empresa,'nomeEmpresa':nomeEmpresa,'logoEmpresa':logoEmpresa,'departamentos':departamentos,'msg':msg})
 
 def colaborador(request):
-    if request.method == 'POST':
-        colaborador = Employee()
-        colaborador.name = request.POST['name']
-        colaborador.save()
+    
        
-    return render(request, 'core/user_form.html')
+    return render(request, 'core/colaborador.html')
+
+from django.http import HttpResponse
+from django.views.generic import TemplateView,ListView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.urls import reverse_lazy
+
+from .models import Book
+
+class EmployeeList(ListView):
+    model = Employee
+
+class EmployeeCreate(CreateView):
+    model = Employee
+    fields = ['name', 'email','phone','user','age','joining_date','salary','gender','company','department']
+    success_url = reverse_lazy('core:employee_list')
+
+class EmployeeUpdate(UpdateView):
+    model = Employee
+    fields = ['name', 'email','phone','user','age','joining_date','salary','gender','company','department']
+    success_url = reverse_lazy('core:employee_list')
+
+class EmployeeDelete(DeleteView):
+    model = Employee
+    success_url = reverse_lazy('core:employee_list')

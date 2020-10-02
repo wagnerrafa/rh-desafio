@@ -2,7 +2,7 @@ import uuid
 
 from django.contrib.auth.models import User
 from django.db import models
-
+from django.shortcuts import reverse
 
 # Create your models here.
 
@@ -69,3 +69,12 @@ class Employee(models.Model):
     # Simple title return queue for django admin or auto template
     def __str__(self):
         return str(self.name)
+        
+    def get_absolute_url(self):
+        return reverse('core:edit_employee', kwargs={'pk': self.pk})
+class Book(models.Model):
+    name = models.CharField(max_length=200)
+    pages = models.IntegerField()
+
+    def __str__(self):
+        return self.name
