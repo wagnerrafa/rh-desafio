@@ -2,12 +2,16 @@
 
 {% block content %}
 
-<a href="{% url 'core:company_list' %}">Listar Empresas</a>
-<h2>Editar:</h2>
-
-<form method="post">{% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Submit" />
-</form>
-
+<div class="container">
+    <form novalidate method="POST"enctype="multipart/form-data">{% csrf_token%}
+        <h1 class="col-md-6 offset-md-3">Cadastrar Empresa</h1>
+        <div class="form-group">
+            <div class="col-md-6 offset-md-3" id="listar">
+                
+                {{ form.as_p }}
+                <button class="btn btn-success btn-sm" type="submit">Cadastrar</button>
+            </div>
+        </div>
+    </form>
+</div>
 {% endblock %}

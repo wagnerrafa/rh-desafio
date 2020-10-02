@@ -2,12 +2,15 @@
 
 {% block content %}
 
-<a href="{% url 'core:department_list' %}">Listar Departamentos</a>
-<h2>Cadastrar:</h2>
-
-<form method="post">{% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Submit" />
-</form>
-
+<div class="container">
+    <form class="needs-validation" novalidate method="POST"> {% csrf_token %}
+        <h1 class="col-md-6 offset-md-3">Cadastrar departamento</h1>
+        <div class="form-group">
+            <div class="col-md-6 offset-md-3" id="listar">
+                {{ form.as_p }}
+                <button class="btn btn-success btn-sm" type="submit">Cadastrar</button>
+            </div>
+        </div>
+    </form>
+</div>
 {% endblock %}

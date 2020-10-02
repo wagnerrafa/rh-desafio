@@ -3,14 +3,11 @@
 {% block content %}
 
 <div class="container">
-    <div class="row" id="formulario">
-        <div class="col align-self-center">
-            <h4 class="mb-2">Lista de Usuarios</h1>
-            <form class="needs-validation" novalidate method="POST"> 
-                <div class="col-md-6 mb-6">    
+    <form class="needs-validation" novalidate method="POST"> {% csrf_token %}
+        <h4 class="col-md-6 offset-md-3">Lista de Colaboradores</h1>
+        <div class="form-group">  
                 {% for list in object_list %}
-                <div class="col-md-10 mb-6" id="listar">
-                    <div></div>
+                <div class="col-md-6 offset-md-3" id="listar">
                     <p class="form-control"><span>Nome: {{ list.name }}</span></p>
                     <p class="form-control"><span>Email: {{ list.email }}</span></p>
                     <p class="form-control"><span>Idade: {{ list.age }}</span></p>
@@ -24,10 +21,7 @@
                     <a class="btn btn-warning btn-sm"href="{% url 'core:employee_edit' list.pk %}">edit</a>
                     <a class="btn btn-danger btn-sm"href="{% url 'core:employee_delete' list.pk %}">delete</a>
                 </div>
-                {% endfor %}
-
-            </form>
-        </div>
-    </div>
+            {% endfor %}
+    </form>
 </div>
 {% endblock %}

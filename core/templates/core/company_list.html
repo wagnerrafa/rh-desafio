@@ -3,21 +3,17 @@
 {% block content %}
 
 <div class="container">
-    <div class="row" id="formulario">
-        <div class="col align-self-center">
-            <h4 class="mb-3">Lista de Empresas</h1>
-            <form class="needs-validation" novalidate method="POST"> 
-                <div class="col-md-6 mb-3">    
+    <form class="needs-validation" novalidate method="POST"> {% csrf_token %}
+        <h4 class="col-md-6 offset-md-3">Lista de Empresas</h1>
+        <div class="form-group">  
                 {% for list in object_list %}
-                <div class="col-md-7 mb-1" id="listar">
-                    <div></div>
+                <div class="col-md-6 offset-md-3" id="listar">
                     <p class="form-control"><span>Empresa: {{ list.name }}</span></p>
                     <p class="form-control"><span>Numero: {{ list.legal_number }}</span></p>
                     <a class="btn btn-warning btn-sm"href="{% url 'core:company_edit' list.pk %}">edit</a>
                     <a class="btn btn-danger btn-sm"href="{% url 'core:company_delete' list.pk %}">delete</a>
                 </div>
                 {% endfor %}
-
             </form>
         </div>
     </div>

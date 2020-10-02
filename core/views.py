@@ -90,6 +90,10 @@ class DepartmentDelete(DeleteView):
 class CompanyList(ListView):
     model = Company
 
+class CompanyCreate(CreateView):
+    model = Company
+    fields = ['logo','name','legal_number']
+    success_url = reverse_lazy('core:company_list')
 
 class CompanyUpdate(UpdateView):
     model = Company

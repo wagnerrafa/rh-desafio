@@ -2,25 +2,19 @@
 
 {% block content %}
 <div class="container">
-
-    <div class="row" id="formulario">
-        <div class="col align-self-center">
-            <h4 class="mb-3">Lista de Departamento</h1>
-            <form class="needs-validation" novalidate method="POST"> 
-                <div class="col-md-6 mb-3">    
-                {% for list in object_list %}
-                <div class="col-md-7 mb-1" id="listar">
-                    <div></div>
-                    <p class="form-control"><span>Empresa: {{ list.company }}</span></p>
-                    <p class="form-control"><span>Departamento: {{ list.name }}</span></p>
-                    <p class="form-control"><span>Status: {{ list.status }}</span></p>
-                    <a class="btn btn-warning btn-sm"href="{% url 'core:department_edit' list.pk %}">edit</a>
-                    <a class="btn btn-danger btn-sm"href="{% url 'core:department_delete' list.pk %}">delete</a>
-                </div>
-                {% endfor %}
-
-            </form>
+    <form class="needs-validation" novalidate method="POST"> {% csrf_token %}
+        <h4 class="col-md-6 offset-md-3">Lista de Departamento</h1>
+        <div class="form-group">
+            {% for list in object_list %}
+            <div class="col-md-6 offset-md-3" id="listar">
+            <p class="form-control"><span>Empresa: {{ list.company }}</span></p>
+            <p class="form-control"><span>Departamento: {{ list.name }}</span></p>
+            <p class="form-control"><span>Status: {{ list.status }}</span></p>
+            <a class="btn btn-warning btn-sm"href="{% url 'core:department_edit' list.pk %}">edit</a>
+            <a class="btn btn-danger btn-sm"href="{% url 'core:department_delete' list.pk %}">delete</a>
         </div>
-    </div>
+        {% endfor %}
+
+    </form>
 </div>
 {% endblock %}

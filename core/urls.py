@@ -24,6 +24,7 @@ urlpatterns = [
    path('deleteDepartment/<uuid:pk>/', views.DepartmentDelete.as_view(), name='department_delete'),
 
    path('company_list/', views.CompanyList.as_view(), name='company_list'),
+   path('newCompany/', views.CompanyCreate.as_view(), name='company_new'),
    path('editcompany/<uuid:pk>/', views.CompanyUpdate.as_view(), name='company_edit'),
    path('deletecompany/<uuid:pk>/', views.CompanyDelete.as_view(), name='company_delete'),
   
