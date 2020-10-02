@@ -5,16 +5,19 @@
         <form id="form" method="POST" action="#empresa">{% csrf_token%}
             <h1>Escolha de empresa</h1>
            
-            <div>
+            <nav class="company">
                 {% for empresa in empresas%}
-                    <a href="{% url 'core:post_detail' empresa.pk %}" class="btn btn-primary">{{empresa.name}}</a>
+                <nav>
+                    <a href="{% url 'core:post_detail' empresa.pk %}">{{empresa.name}}</a>
                     <img id="logo" src="../../../media/{{empresa.logo}}" alt="">
+                </nav>
                 {%endfor%}
-            </div>
-            <div>
-                <a href="{% url 'core:cadastrar' %}">Cadastrar nova empresa</a>
+            </nav>
+            <nav >
+            <section class="col-md-1">
+                <a class="btn btn-primary" href="{% url 'core:cadastrar' %}">Cadastrar empresa</a>
                 <span>{{retorno}}</span>
-            </div>
+            </section>
         </form>
     </section>
     
