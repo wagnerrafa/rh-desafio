@@ -49,6 +49,8 @@ def colaborador(request):
        
     return render(request, 'core/colaborador.html')
 
+
+
 from django.http import HttpResponse
 from django.views.generic import TemplateView,ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
@@ -72,3 +74,33 @@ class EmployeeUpdate(UpdateView):
 class EmployeeDelete(DeleteView):
     model = Employee
     success_url = reverse_lazy('core:employee_list')
+
+class DepartmentList(ListView):
+    model = Department
+
+class DepartmentCreate(CreateView):
+    model = Department
+    fields = ['company','name','status']
+    success_url = reverse_lazy('core:department_list')
+
+class DepartmentUpdate(UpdateView):
+    model = Department
+    fields = ['company','name','status']
+    success_url = reverse_lazy('core:department_list')
+
+class DepartmentDelete(DeleteView):
+    model = Department
+    success_url = reverse_lazy('core:department_list')
+
+class CompanyList(ListView):
+    model = Company
+
+
+class CompanyUpdate(UpdateView):
+    model = Company
+    fields = ['logo','name','legal_number']
+    success_url = reverse_lazy('core:company_list')
+
+class CompanyDelete(DeleteView):
+    model = Company
+    success_url = reverse_lazy('core:company_list')

@@ -22,10 +22,13 @@ class Company(models.Model):
 
     def __str__(self):
         return(self.name)
+    def get_absolute_url(self):
+        return reverse('core:edit_company', kwargs={'pk': self.pk})
+
 class Department(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False, unique=True)
 
-    company = models.ForeignKey(Company, verbose_name="Empresa", on_delete=models.PROTECT)
+    company = models.ForeignKey(Company, verbose_name="Empresa", on_delete=models.CASCADE)
     name = models.CharField(max_length=50, verbose_name='Nome', blank=False)
     status = models.BooleanField('status', default=False)
     admin = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
@@ -38,6 +41,8 @@ class Department(models.Model):
     update_user = models.UUIDField(editable=False, null=True)
     def __str__(self):
         return(self.name )
+    def get_absolute_url(self):
+        return reverse('core:edit_department', kwargs={'pk': self.pk})
     
 class Employee(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False, unique=True)
@@ -53,7 +58,7 @@ class Employee(models.Model):
     email = models.EmailField(verbose_name='Email', max_length=100)
     gender = models.CharField(max_length=1, choices=GENDER)
     # department = models.ForeignKey(Department, on_delete=models.PROTECT)
-    company = models.ForeignKey(Company, on_delete=models.PROTECT)
+    company = models.ForeignKey(Company, on_delete=models.CASCADE)
     phone = models.CharField(max_length=14, default='Sem Telefone')
     user = models.CharField(max_length=50, verbose_name='Nome do usuario')
     age = models.IntegerField(default=0)

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section id="empresa">
+    <form id="form" method="POST">
+        <h1>Cadastro de Departamento</h1>
+        {% for list in object_list %}
+
+            <div>
+                <p><span>Nome: {{ list.company }}</span> Nome: {{list.name}}</p>
+                <a href="{% url 'core:department_edit' list.pk %}">edit</a>
+                <a href="{% url 'core:department_delete' list.pk %}">delete</a>
+            </div>
+            {% endfor %}
+            <a class="btn btn-primary btn-lg btn-block"href="{% url 'core:department_new' %}">New</a>
+    </form>
+</section>
+{% endblock %}

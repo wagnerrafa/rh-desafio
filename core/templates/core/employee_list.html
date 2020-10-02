@@ -2,11 +2,12 @@
 
 {% block content %}
 
-<h2><a href="{% url 'core:employee_list' %}">Listar Usuarios</a></h2>
+<p><a href="{% url 'core:employee_list' %}">Listar Usuarios</a></h2>
 
 <ul>
     {% for list in object_list %}
-    <li>{{ list.name }}  ({{ list.pages }} Pages)
+    <li>
+        <p><span>Nome: {{ list.name }}</span> User: {{list.user}}</p>
     <a href="{% url 'core:employee_edit' list.pk %}">edit</a>
     <a href="{% url 'core:employee_delete' list.pk %}">delete</a>
     </li>

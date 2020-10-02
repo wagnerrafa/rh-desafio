@@ -44,6 +44,29 @@
     <link href="form-validation.css" rel="stylesheet">
 </head>
     <body class="bg-light">
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+           
+                <li class="nav-item">
+                        <a class="nav-link" href="{% url 'core:index' %}">Inicio</a>
+                </li>
+                <li class="nav-item">
+                        <a class="nav-link" href="{% url 'core:cadastrar' %}">Cadastrar empresa</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'core:company_list' %}">Atualizar empresa</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'core:department_new' %}">Cadastrar Departamento</a>
+                </li>
+               
+          </ul>
+        </div>
+      </nav>
 
     {% block header %}
     {% endblock %}
