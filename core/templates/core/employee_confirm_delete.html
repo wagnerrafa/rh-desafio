@@ -2,11 +2,15 @@
 
 {% block content %}
 
-<h2><a href="{% url 'core:employee_list' %}">Listar todos usuarios</a>: Delete?</h2>
 
-<form method="post">{% csrf_token %}
-    Are you sure you want to delete "{{ object }}" ?<br>
-    <input type="submit" value="Delete" />
-</form>
+<div class="container">
+    <form novalidate method="POST"enctype="multipart/form-data">{% csrf_token%}
+        <div class="form-group">
+            <div class="col-md-6 offset-md-3" id="listar">    Tem certeza que deseja remover "{{ object }}" ?<br>
+                <button class="btn btn-danger btn-sm" value="Delete">Delete</button>
+            </div>
+        </div>
+    </form>
+</div>
 
 {% endblock %}
