@@ -1,24 +1,24 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import Company, Department, Employee
 
 # Create your views here.
 def index(request):
     empresas = Company.objects.all()
-    if request.method == 'POST':
+    
+    return render(request, 'core/empresa.html',{'empresas':empresas})
+
+def cadastrar(request):
+    if request.method == 'GET':
+        return render(request, 'core/cadastrar.html')
+    elif (request.method == 'POST'):
         empresa = Company()
-        empresa.logo = request.POST['logo']
+        empresa.logo = request.FILES['logo']
         empresa.name = request.POST['nome']
         empresa.legal_number = request.POST['numero']
         empresa.save()
-    return render(request, 'core/empresa.html',{'empresas':empresas})
+        return redirect('core:index')
 
-def user_form(request):
-    empresa = Company.objects.all()
-    for i in empresa:
-        logo = i.logo
-        nomeEmpresa = i.name
-    return render(request, 'core/user_form.html',{'logo':logo,'nomeEmpresa':nomeEmpresa})
-
+    
 
 def post_detail(request, pk):
     post = get_object_or_404(Company, pk=pk)

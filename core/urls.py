@@ -1,5 +1,5 @@
 from django.urls import path
-from core.views import index, user_form, post_detail
+from core.views import index, post_detail, cadastrar
 from . import views
 from django.conf.urls import url
 from django.views.static import serve
@@ -8,8 +8,8 @@ from django.conf import settings
 app_name = 'core'
 
 urlpatterns = [
-   path('',index),
-   path('user_form/', user_form),
+   path('',index, name='index'),
+   path('core/cadastrar/', cadastrar, name='cadastrar'),
    path('core/company/<uuid:pk>/', views.post_detail, name='post_detail'),
    url(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
 

@@ -7,12 +7,14 @@
            
             <div>
                 {% for empresa in empresas%}
-                <a href="{% url 'core:post_detail' empresa.pk %}" class="btn btn-primary">{{empresa.name}}</a>
-
+                    <a href="{% url 'core:post_detail' empresa.pk %}" class="btn btn-primary">{{empresa.name}}</a>
                     <img id="logo" src="../../../media/{{empresa.logo}}" alt="">
-                    {%endfor%}
+                {%endfor%}
             </div>
-                        
+            <div>
+                <a href="{% url 'core:cadastrar' %}">Cadastrar nova empresa</a>
+                <span>{{retorno}}</span>
+            </div>
         </form>
     </section>
     
