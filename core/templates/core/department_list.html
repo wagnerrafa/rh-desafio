@@ -1,19 +1,26 @@
-{% extends "base.html" %}
+{% extends "base.html" %}{% load static %}
 
 {% block content %}
+<div class="container">
 
-<section id="empresa">
-    <form id="form" method="POST">
-        <h1>Cadastro de Departamento</h1>
-        {% for list in object_list %}
+    <div class="row" id="formulario">
+        <div class="col align-self-center">
+            <h4 class="mb-3">Lista de Departamento</h1>
+            <form class="needs-validation" novalidate method="POST"> 
+                <div class="col-md-6 mb-3">    
+                {% for list in object_list %}
+                <div class="col-md-7 mb-1" id="listar">
+                    <div></div>
+                    <p class="form-control"><span>Empresa: {{ list.company }}</span></p>
+                    <p class="form-control"><span>Departamento: {{ list.name }}</span></p>
+                    <p class="form-control"><span>Status: {{ list.status }}</span></p>
+                    <a class="btn btn-warning btn-sm"href="{% url 'core:department_edit' list.pk %}">edit</a>
+                    <a class="btn btn-danger btn-sm"href="{% url 'core:department_delete' list.pk %}">delete</a>
+                </div>
+                {% endfor %}
 
-            <div>
-                <p><span>Nome: {{ list.company }}</span> Nome: {{list.name}}</p>
-                <a href="{% url 'core:department_edit' list.pk %}">edit</a>
-                <a href="{% url 'core:department_delete' list.pk %}">delete</a>
-            </div>
-            {% endfor %}
-            <a class="btn btn-primary btn-lg btn-block"href="{% url 'core:department_new' %}">New</a>
-    </form>
-</section>
+            </form>
+        </div>
+    </div>
+</div>
 {% endblock %}

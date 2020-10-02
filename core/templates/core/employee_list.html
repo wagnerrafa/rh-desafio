@@ -2,18 +2,32 @@
 
 {% block content %}
 
-<p><a href="{% url 'core:employee_list' %}">Listar Usuarios</a></h2>
+<div class="container">
+    <div class="row" id="formulario">
+        <div class="col align-self-center">
+            <h4 class="mb-2">Lista de Usuarios</h1>
+            <form class="needs-validation" novalidate method="POST"> 
+                <div class="col-md-6 mb-6">    
+                {% for list in object_list %}
+                <div class="col-md-10 mb-6" id="listar">
+                    <div></div>
+                    <p class="form-control"><span>Nome: {{ list.name }}</span></p>
+                    <p class="form-control"><span>Email: {{ list.email }}</span></p>
+                    <p class="form-control"><span>Idade: {{ list.age }}</span></p>
+                    <p class="form-control"><span>Telefone: {{ list.phone }}</span></p>
+                    <p class="form-control"><span>Usuario: {{ list.user }}</span></p>
+                    <p class="form-control"><span>Genero: {{ list.gender }}</span></p>
+                    <p class="form-control"><span>Efetivado: {{ list.joining_date }}</span></p>
+                    <p class="form-control"><span>Salario: {{ list.salary }}</span></p>
+                    <p class="form-control"><span>Empresa: {{ list.company }}</span></p>
+                    <p class="form-control"><span>Departamento: {{ list.department }}</span></p>
+                    <a class="btn btn-warning btn-sm"href="{% url 'core:employee_edit' list.pk %}">edit</a>
+                    <a class="btn btn-danger btn-sm"href="{% url 'core:employee_delete' list.pk %}">delete</a>
+                </div>
+                {% endfor %}
 
-<ul>
-    {% for list in object_list %}
-    <li>
-        <p><span>Nome: {{ list.name }}</span> User: {{list.user}}</p>
-    <a href="{% url 'core:employee_edit' list.pk %}">edit</a>
-    <a href="{% url 'core:employee_delete' list.pk %}">delete</a>
-    </li>
-    {% endfor %}
-</ul>
-
-<a href="{% url 'core:employee_new' %}">New</a>
-
+            </form>
+        </div>
+    </div>
+</div>
 {% endblock %}

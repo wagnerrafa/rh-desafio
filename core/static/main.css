@@ -72,6 +72,9 @@ input[type="file"] {
     padding: 0;
 }
 
-#formulario{
+#formColaborador{
     display: none;
+}
+#listar{
+    padding: 20px;
 }
