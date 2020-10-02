@@ -1,15 +1,16 @@
 import uuid
-
 from django.contrib.auth.models import User
 from django.db import models
 from django.shortcuts import reverse
+from cloudinary.models import CloudinaryField
+
 
 # Create your models here.
 
 class Company(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False, unique=True)
 
-    logo = models.ImageField()
+    logo = CloudinaryField('Foto de logo')
     name = models.CharField(max_length=50, verbose_name='Nome', blank=False)
     legal_number = models.CharField(max_length=10, verbose_name='Numero', blank=False)
 

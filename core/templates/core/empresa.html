@@ -9,7 +9,7 @@
                 {% for empresa in empresas%}
                 <nav>
                     <a href="{% url 'core:empresa' empresa.pk %}">{{empresa.name}}</a>
-                    <img id="logo" src="../../../media/{{empresa.logo}}" alt="">
+                    <img id="logo" src="https://res.cloudinary.com/wagner/image/upload/{{empresa.logo}}" alt="">
                 </nav>
                 {%endfor%}
             </nav>

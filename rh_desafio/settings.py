@@ -21,6 +21,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'core',
+    'cloudinary',
+
 
 ]
 
@@ -100,3 +102,8 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+CLOUDINARY = {
+    'cloud_name' : os.environ.get('cloud_name'),
+    'api_key' : os.environ.get('api_key'),
+    'api_secret': os.environ.get('api_secret'),
+}
