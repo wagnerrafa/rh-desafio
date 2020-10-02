@@ -71,3 +71,7 @@ input[type="file"] {
     width: 18rem;
     padding: 0;
 }
+
+#formulario{
+    display: none;
+}
