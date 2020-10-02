@@ -9,8 +9,9 @@
     <div class="row">
 
         <div class="col align-self-center">
+            {{msg}}
             <h4 class="mb-3">Informações</h4>
-            <form class="needs-validation" novalidate method="POST" action="."> 
+            <form class="needs-validation" novalidate method="POST"> 
                 {% csrf_token %}
                 <div class="row">
                     <div class="col-md-6 mb-3">

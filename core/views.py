@@ -26,7 +26,7 @@ def empresa(request, pk):
     logoEmpresa = dadosEmpresa[1]
     departamentos =dadosEmpresa[2]
     departamentos = Department.objects.filter(company=post)
-    
+    msg = ''
     if request.method == 'POST':
         colaborador = Employee()
         colaborador.name = request.POST['name']
@@ -41,8 +41,8 @@ def empresa(request, pk):
         colaborador.department_id = request.POST['departamento']
 
         colaborador.save()
-       
-    return render(request, 'core/user_form.html', {'post':empresa,'nomeEmpresa':nomeEmpresa,'logoEmpresa':logoEmpresa,'departamentos':departamentos})
+        msg = "Cadastro feito com sucesso"
+    return render(request, 'core/user_form.html', {'post':empresa,'nomeEmpresa':nomeEmpresa,'logoEmpresa':logoEmpresa,'departamentos':departamentos,'msg':msg})
 
 def colaborador(request):
     if request.method == 'POST':
