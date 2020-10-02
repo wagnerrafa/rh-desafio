@@ -8,7 +8,7 @@
             <nav class="company">
                 {% for empresa in empresas%}
                 <nav>
-                    <a href="{% url 'core:post_detail' empresa.pk %}">{{empresa.name}}</a>
+                    <a href="{% url 'core:empresa' empresa.pk %}">{{empresa.name}}</a>
                     <img id="logo" src="../../../media/{{empresa.logo}}" alt="">
                 </nav>
                 {%endfor%}

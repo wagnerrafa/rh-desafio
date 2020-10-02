@@ -1,6 +1,6 @@
 from django.urls import path
-from core.views import index, post_detail, cadastrar
-from . import views
+from core.views import index, empresa, cadastrar, colaborador
+from core import views
 from django.conf.urls import url
 from django.views.static import serve
 from django.conf import settings
@@ -9,8 +9,9 @@ app_name = 'core'
 
 urlpatterns = [
    path('',index, name='index'),
+   path('user_form/',colaborador, name='user_form'),
    path('core/cadastrar/', cadastrar, name='cadastrar'),
-   path('core/company/<uuid:pk>/', views.post_detail, name='post_detail'),
+   path('core/company/<uuid:pk>/', views.empresa, name='empresa'),
    url(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
 
    # path('process-list-full', ProcessList.as_view(), name='process-list-full'),

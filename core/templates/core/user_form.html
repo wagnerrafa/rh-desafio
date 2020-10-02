@@ -10,53 +10,59 @@
 
         <div class="col align-self-center">
             <h4 class="mb-3">Informações</h4>
-            <form class="needs-validation" novalidate>
+            <form class="needs-validation" novalidate method="POST" action="."> 
+                {% csrf_token %}
                 <div class="row">
                     <div class="col-md-6 mb-3">
-                        <label for="firstName">Nome</label>
-                        <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+                        <label for="name">Nome</label>
+                        <input type="text" name="name" class="form-control" id="name" placeholder="Nome..." required>
                         <div class="invalid-feedback">
                             Valid first name is required.
                         </div>
                     </div>
                     <div class="col-md-6 mb-3">
-                        <label for="lastName">Sobrenome</label>
-                        <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
+                        <label for="lastName">Telefone</label>
+                        <input type="number" name="telefone" class="form-control" id="telefone" placeholder="Telefone..." required>
                         <div class="invalid-feedback">
                             Valid last name is required.
                         </div>
                     </div>
                     <div class="col-md-6 mb-3">
-                        <label for="lastName">Idade</label>
-                        <input type="number" class="form-control" id="age" placeholder="" value="" required>
+                        <label for="idade">Idade</label>
+                        <input type="number" name="idade" class="form-control" id="age" placeholder="idade" required>
                         <div class="invalid-feedback">
                             Valid last name is required.
                         </div>
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="lastName">Salario</label>
-                        <input type="number" class="form-control" id="salary" placeholder="" value="" required>
+                        <input type="number" name="salario" class="form-control" id="salary" placeholder="Salario..." required>
                         <div class="invalid-feedback">
                             Valid last name is required.
                         </div>
                     </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="join">Data de entrada</label>
+                        <input type="date" name="entrada" class="form-control" id="entrada" placeholder="Entrada..." required>
+                        <div class="invalid-feedback">
+                            Valid data is required.
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="join">Genero</label>
+                        <select name="genero" class="custom-select d-block w-100" id="country" required>
+                            <option value="" disabled selected>Selecionar genero</option>
+                                <option value="M">Homem</option>
+                                <option value="F">Mulher</option>
+                                <option value="O">Nao binario</option>
+                        </select>
+                            <div class="invalid-feedback">
+                                Please select a valid.
+                            </div>
+                    </div>
                 </div>
 
-                <div class="d-block my-3">
-                    <div class="custom-control custom-radio">
-                        <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked
-                               required>
-                        <label class="custom-control-label" for="credit">Homem</label>
-                    </div>
-                    <div class="custom-control custom-radio">
-                        <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required>
-                        <label class="custom-control-label" for="debit">Mulher</label>
-                    </div>
-                    <div class="custom-control custom-radio">
-                        <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required>
-                        <label class="custom-control-label" for="paypal">Não Binario</label>
-                    </div>
-                </div>
+                
 
                 <div class="mb-3">
                     <label for="username">Nome de Usuário</label>
@@ -64,7 +70,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text">@</span>
                         </div>
-                        <input type="text" class="form-control" id="username" placeholder="Username" required>
+                        <input type="text" name="user" class="form-control" id="username" placeholder="Username" required>
                         <div class="invalid-feedback" style="width: 100%;">
                             Your username is required.
                         </div>
@@ -73,7 +79,7 @@
 
                 <div class="mb-3">
                     <label for="email">Email <span class="text-muted">(Optional)</span></label>
-                    <input type="email" class="form-control" id="email" placeholder="you@example.com">
+                    <input type="email" name="email" class="form-control" id="email" placeholder="you@example.com">
                     <div class="invalid-feedback">
                         Please enter a valid email address for shipping updates.
                     </div>
@@ -81,10 +87,10 @@
                 <div class="row">
                     <div class="col-md-5 mb-3">
                         <label for="country">Departamento</label>
-                        <select class="custom-select d-block w-100" id="country" required>
+                        <select name="departamento" class="custom-select d-block w-100" id="country" required>
                             <option value="" disabled selected>Selecionar departamento</option>
                             {% for departamento in departamentos%}
-                                <option value="{{departamento.name}}">{{departamento.name}}</option>
+                                <option value="{{departamento.id}}">{{departamento.name}}</option>
                             {%endfor%}
                         </select>
                             <div class="invalid-feedback">

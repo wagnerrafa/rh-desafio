@@ -44,18 +44,18 @@ class Employee(models.Model):
 
     department = models.ForeignKey(Department, verbose_name="Departamento", on_delete=models.PROTECT)
     name = models.CharField(max_length=100)
-    user = models.OneToOneField(User, on_delete=models.PROTECT)
     GENDER = (
         ('M', 'Male'),
         ('F', 'Female'),
         ('O', 'Others')
 
     )
+    email = models.EmailField(verbose_name='Email', max_length=100)
     gender = models.CharField(max_length=1, choices=GENDER)
     # department = models.ForeignKey(Department, on_delete=models.PROTECT)
     company = models.ForeignKey(Company, on_delete=models.PROTECT)
     phone = models.CharField(max_length=14, default='Sem Telefone')
-    role = models.CharField(max_length=50, default='Sem Atribuição')
+    user = models.CharField(max_length=50, verbose_name='Nome do usuario')
     age = models.IntegerField(default=0)
     joining_date = models.DateField(null=True)
     salary = models.DecimalField(decimal_places=2, max_digits=12, default=0)
