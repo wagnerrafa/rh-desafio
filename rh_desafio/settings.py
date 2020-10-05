@@ -6,7 +6,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'w6!ugy+i5w8@w@*sn!nscxly!_hcn2-4&1cvs=@scwc-b)60kt'
 
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -19,7 +19,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'core',
+<<<<<<< Updated upstream
 
+=======
+    'cloudinary',
+>>>>>>> Stashed changes
 ]
 
 MIDDLEWARE = [
@@ -80,7 +84,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'pt-br'
 
 TIME_ZONE = 'UTC'
 
@@ -90,7 +94,26 @@ USE_L10N = True
 
 USE_TZ = True
 
+<<<<<<< Updated upstream
 
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+=======
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+CLOUDINARY = {
+    'cloud_name' : os.environ.get('cloud_name'),
+    'api_key' : os.environ.get('api_key'),
+    'api_secret': os.environ.get('api_secret'),
+}
+django_heroku.settings(locals())
+>>>>>>> Stashed changes

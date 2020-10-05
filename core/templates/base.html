@@ -1,14 +1,23 @@
-{% load static %} {% block baseSite %}
+{% block baseSite %} {% load static %} 
 <!doctype html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
     <meta name="generator" content="">
+<<<<<<< Updated upstream
     <link rel="stylesheet" href="{% static 'main.css' %}">
     <script defer src="{% static '/js/script.js' %}"></script>
+=======
+    <meta property="og:url"                content="https://solucao-rh.herokuapp.com/" />
+    <meta property="og:type"               content="article" />
+    <meta property="og:title"              content="Soluções para RH" />
+    <meta property="og:description"        content="Um site para você manter a organização e controle de sua empresa" />
+    <meta property="og:image"              content="https://res.cloudinary.com/wagner/image/upload/nii7zdpusbcoyznyjdep" />
+    <script defer src="{% static 'js/script.js' %}"></script>
+>>>>>>> Stashed changes
     <title></title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
           integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
@@ -42,6 +51,7 @@
     </style>
 
     <link href="form-validation.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'main.css' %}">
 </head>
     <body class="bg-light">
       <nav class="navbar navbar-expand-lg navbar-light">

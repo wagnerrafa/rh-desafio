@@ -1,9 +1,6 @@
 from django.urls import path
 from core.views import *
 from core import views
-from django.conf.urls import url
-from django.views.static import serve
-from django.conf import settings
 
 app_name = 'core'
 
@@ -25,6 +22,7 @@ urlpatterns = [
 
    path('company_list/', views.CompanyList.as_view(), name='company_list'),
    path('editcompany/<uuid:pk>/', views.CompanyUpdate.as_view(), name='company_edit'),
+<<<<<<< Updated upstream
    path('deletecompany/<uuid:pk>/', views.CompanyDelete.as_view(), name='company_delete'),
   
    url(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
@@ -38,4 +36,7 @@ urlpatterns = [
    # path('process-delete/<uuid:pk>', ProcessDelete.as_view(), name='process-delete'),
 
 
+=======
+   path('deletecompany/<uuid:pk>/', views.CompanyDelete.as_view(), name='company_delete'),  
+>>>>>>> Stashed changes
 ]
